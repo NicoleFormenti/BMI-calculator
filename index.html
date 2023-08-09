@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="bmi-js.js"></script>
+    <title>BMI Calculator</title>
+    </head>
+    
+    <body>
+        <form id="bmi-form">
+            <div class="form-row">
+                    <label for="height">Height in cm</label>
+                    <input type="number" name="height" id="height">
+            </div>
+            <div class="form-row">
+                    <label for="weight">Weight in Kg</label>
+                    <input type="number" name="weight" id="weight">
+            </div>
+            <button id="calculate-button">Calculate</button>
+            <div id="display"></div>
+        </form>
+        <script>
+            const calculateButton = document.getElementById('calculate-button');
+            const display = document.getElementById('display');
+
+            // when user clicks the calculate button (capture the click event)
+            // run a function that divides weight value by height value
+            //output the answer into the display div
+
+            calculateButton.addEventListener('click' , function(event){
+                const heightValue = document.getElementById('height').value;
+                const weightValue = document.getElementById('weight').value;
+                event.preventDefault(); //it stops the form default behaviour 
+                const answer = weightValue / (heightValue * heightValue) * 10000;
+                display.innerHTML = answer;
+            })
+        </script>
+    </body>
+</html>
